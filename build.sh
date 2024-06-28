@@ -16,3 +16,6 @@ docker rmi ubuntu:22.04
 
 # Remove the dangling image with <none> tag
 docker images -q -f dangling=true | xargs docker rmi -f
+
+echo "Docker image"
+docker images | grep ${SERVICE}_${NETWORK}

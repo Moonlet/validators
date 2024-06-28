@@ -2,13 +2,12 @@
 
 # Check if initial setup is required
 if [ ! -d "$HOME/.$SERVICE" ]; then
+    echo "Initialize $MONIKER node"
+    $BINARY init $MONIKER --chain-id $CHAIN_ID
+
     echo "Set chain-id $CHAIN_ID"
     $BINARY config chain-id $CHAIN_ID
 
-    echo "Initialize $MONIKER node"
-    $BINARY init $MONIKER
-
-    # service init
     # TODO: setup app.toml and config.toml
 fi
 
