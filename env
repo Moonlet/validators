@@ -1,0 +1,9 @@
+PORT=1234
+SERVICE=dymension
+NETWORK=mainnet
+BINARY=dymd
+SERVER_TYPE=rpc
+MONIKER=Moonlet
+PRUNING=custom
+CHAIN_ID=dymension_1100-1
+GIT_REPO=https://github.com/dymensionxyz/dymension/releases/download/v3.1.0/dymd
