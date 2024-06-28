@@ -1,6 +1,7 @@
 ## Moonlet Validators
 
 Setup mainnet and testnet blockchain nodes using Docker.
+This current version is suitable for Cosmos Tendermint Validators / RPC Nodes.
 
 ### Commands
 
