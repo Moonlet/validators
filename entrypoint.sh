@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Start entrypoint"
+
 # Check if initial setup is required
 if [ ! -d "$HOME/.$SERVICE" ]; then
     echo "Initialize $MONIKER node"
@@ -12,6 +14,8 @@ if [ ! -d "$HOME/.$SERVICE" ]; then
     sed -i -e "s|^minimum-gas-prices *=.*|minimum-gas-prices = \"$MIN_GAS_PRICE\"|" $HOME/.$SERVICE/config/app.toml
 
     # TODO: setup app.toml and config.toml
+else
+    echo "Initial setup has been already made"
 fi
 
 if [ ! -f "$HOME/.$SERVICE/config/genesis.json" ]; then
