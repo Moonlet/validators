@@ -25,6 +25,8 @@ vi env
 ./build.sh
 ```
 
+Can check the image: `docker images`
+
 4. Run the Docker image
 
 ```

@@ -11,3 +11,9 @@ docker build \
   --build-arg BINARY=${BINARY} \
   --build-arg VERSION=${VERSION} \
   -t "${SERVICE}_${NETWORK}" .
+
+# Remove the ubuntu image
+docker rmi ubuntu:22.04
+
+# Remove the dangling image with <none> tag
+docker images -q -f dangling=true | xargs docker rmi -f
