@@ -10,7 +10,7 @@ This current version is suitable for Cosmos Tendermint Validators / RPC Nodes.
 ```
 git clone https://github.com/Moonlet/validators.git
 cd validators
-chmod +x build.sh run.sh initialize.sh
+chmod +x build.sh run.sh initialize.sh snapshot.sh
 ```
 
 2. Update the `env` file
