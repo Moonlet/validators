@@ -9,6 +9,7 @@ Setup mainnet and testnet blockchain nodes using Docker.
 ```
 https://github.com/Moonlet/validators.git
 cd validators
+chmod +x build.sh run.sh
 ```
 
 2. Update the `env` file
