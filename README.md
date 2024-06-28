@@ -10,13 +10,16 @@ Setup mainnet and testnet blockchain nodes using Docker.
 https://github.com/Moonlet/validators.git
 ```
 
-2. Build the Docker image
+2. Update the `env` file
+```
+vi env
+```
 
+3. Build the Docker image
 ```
 ./build.sh
 ```
-
-2. Run the Docker image
+4. Run the Docker image
 
 ```
 ./run.sh
