@@ -6,3 +6,6 @@ SERVER_TYPE=rpc
 MONIKER=Moonlet
 CHAIN_ID=dymension_1100-1
 GIT_REPO=https://github.com/dymensionxyz/dymension/releases/download/v3.1.0/dymd
+GENESIS=https://snapshots.kjnodes.com/dymension/genesis.json
+ADDRBOOK=https://snapshots.kjnodes.com/dymension/addrbook.json
+MIN_GAS_PRICE=20000000000adym
