@@ -29,3 +29,10 @@ vi env
 ```
 ./run.sh
 ```
+
+TODO
+
+- Add Pruning
+- Add custom ports
+- Add initialize script
+- Add snapshot script
