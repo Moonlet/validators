@@ -9,4 +9,4 @@ git stash drop
 git pull
 
 chmod +x build.sh run.sh cleanup.sh
-./build.sh && ./run.sh
+./build.sh && ./initialize.sh && ./run.sh
