@@ -1,6 +1,7 @@
 NETWORK=mainnet
 SERVICE=dymension
 BINARY=dymd
+USER=zeus
 SERVER_TYPE=rpc
 MONIKER=Moonlet
 CHAIN_ID=dymension_1100-1

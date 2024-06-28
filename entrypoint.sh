@@ -2,16 +2,19 @@
 
 echo "Start entrypoint"
 
-if [ ! -f "$HOME/.$SERVICE/config/genesis.json" ]; then
+HOME_DIR="/home/$USER/.$SERVICE"
+echo "HOME_DIR: $HOME_DIR"
+
+if [ ! -f "$HOME_DIR/config/genesis.json" ]; then
     echo "Set genesis: $GENESIS"
     wget -O genesis.json $GENESIS --inet4-only
-    mv genesis.json $HOME/.$SERVICE/config/genesis.json
+    mv genesis.json $HOME_DIR/config/genesis.json
 fi
 
-if [ ! -f "$HOME/.$SERVICE/config/addrbook.json" ]; then
+if [ ! -f "$HOME_DIR/config/addrbook.json" ]; then
     echo "Set addrbook: $ADDRBOOK"
     wget -O addrbook.json $ADDRBOOK --inet4-only
-    mv addrbook.json $HOME/.$SERVICE/config/addrbook.json
+    mv addrbook.json $HOME_DIR/config/addrbook.json
 fi
 
 # Check if the command arguments ($@) are provided
