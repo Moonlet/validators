@@ -9,7 +9,6 @@ set +o allexport
 docker build \
   --build-arg GIT_REPO=${GIT_REPO} \
   --build-arg BINARY=${BINARY} \
-  --build-arg VERSION=${VERSION} \
   -t "${SERVICE}_${NETWORK}" .
 
 # Remove the ubuntu image

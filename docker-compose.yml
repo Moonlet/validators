@@ -8,8 +8,8 @@ services:
       - env
     command: ["start"]
     networks:
-      - ${SERVICE}_${NETWORK}_${SERVER_TYPE}_net
+      - net
 
 networks:
-  ${SERVICE}_${NETWORK}_${SERVER_TYPE}_net:
+  net:
     driver: bridge
