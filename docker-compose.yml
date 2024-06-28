@@ -1,7 +1,7 @@
 version: "3.8"
 
 services:
-  dymension:
+  chain:
     image: "${SERVICE}_${NETWORK}"
     container_name: "${SERVICE}_${NETWORK}_${SERVER_TYPE}"
     env_file:
