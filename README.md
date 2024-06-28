@@ -8,7 +8,7 @@ This current version is suitable for Cosmos Tendermint Validators / RPC Nodes.
 1. Clone repo
 
 ```
-https://github.com/Moonlet/validators.git
+git clone https://github.com/Moonlet/validators.git
 cd validators
 chmod +x build.sh run.sh
 ```
