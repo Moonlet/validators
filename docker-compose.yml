@@ -6,7 +6,8 @@ services:
     container_name: "${SERVICE}_${NETWORK}_${SERVER_TYPE}"
     env_file:
       - env
-    command: ["start"]
+    volumes:
+      - $HOME/.${SERVICE}:/root/.${SERVICE}
     networks:
       - net
 

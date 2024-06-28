@@ -1,12 +1,20 @@
 #!/bin/bash
 
 # Check if initial setup is required
-# if [ ! -d "$HOME/.$SERVICE" ] || [ ! -f "/usr/local/bin/$BINARY" ]; then
-#     # service init
-#     # app si config toml
-#   /usr/local/bin/initialize.sh
-# fi
+if [ ! -d "$HOME/.$SERVICE" ]; then
+    echo "Set chain-id $CHAIN_ID"
+    $BINARY config chain-id $CHAIN_ID
 
-# TODO: "$@" poate sa fie gol si atunci il pun pe start
+    echo "Initialize $MONIKER node"
+    $BINARY init $MONIKER
 
-/dymd "$@"
+    # service init
+    # TODO: setup app.toml and config.toml
+fi
+
+# Check if the command arguments ($@) are provided
+if [ -z "$1" ]; then
+    set -- "start"
+fi
+
+/$BINARY "$@"
