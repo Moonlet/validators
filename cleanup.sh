@@ -6,5 +6,5 @@ cd $HOME/validators
 git stash
 git stash drop
 git pull
-chmod +x build.sh run.sh
+chmod +x build.sh run.sh cleanup.sh
 ./build.sh && ./run.sh
