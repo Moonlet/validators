@@ -10,7 +10,7 @@ This current version is suitable for Cosmos Tendermint Validators / RPC Nodes.
 ```
 git clone https://github.com/Moonlet/validators.git
 cd validators
-chmod +x build.sh run.sh
+chmod +x build.sh run.sh initialize.sh
 ```
 
 2. Update the `env` file
@@ -25,7 +25,11 @@ vi env
 ./build.sh
 ```
 
-Can check the image: `docker images`
+4. Run initialize
+
+```
+./initialize.sh
+```
 
 4. Run the Docker image
 
