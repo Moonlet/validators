@@ -3,37 +3,29 @@
 Setup mainnet and testnet blockchain nodes using Docker.
 This current version is suitable for Cosmos Tendermint Validators / RPC Nodes.
 
-### Commands
-
-1. Clone repo
+### Setup Commands
 
 ```sh
+# Clone repo
 git clone https://github.com/Moonlet/validators.git
 cd validators
-chmod +x build.sh run.sh initialize.sh snapshot.sh
-```
 
-2. Update the `env` file
+# Make executable
+chmod +x build.sh initialize.sh snapshot.sh run.sh
 
-```sh
+# Update the `env` file
 vi env
-```
 
-3. Build the Docker image
-
-```sh
+# Build the Docker image
 ./build.sh
-```
 
-4. Run initialize
-
-```sh
+# Run initialize
 ./initialize.sh
-```
 
-5. Run the Docker image
+# Retrieve a snapshot to boost the sync
+./snapshot.sh
 
-```sh
+# Run the Docker image
 ./run.sh
 ```
 
