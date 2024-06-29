@@ -31,7 +31,7 @@ vi env
 ./initialize.sh
 ```
 
-4. Run the Docker image
+5. Run the Docker image
 
 ```sh
 ./run.sh
