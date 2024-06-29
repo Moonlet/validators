@@ -8,5 +8,5 @@ git stash
 git stash drop
 git pull
 
-chmod +x build.sh run.sh cleanup.sh snapshot.sh
-./build.sh && ./initialize.sh && ./snapshot.sh && ./run.sh
+chmod +x build.sh initialize.sh snapshot.sh run.sh cleanup.sh
+./geek.sh
