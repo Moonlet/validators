@@ -13,7 +13,7 @@ cd validators
 # Make executable
 chmod +x build.sh initialize.sh snapshot.sh run.sh
 
-# Update the `env` file
+# Set the chain details
 vi env
 
 # Build the Docker image
