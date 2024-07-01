@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export $(cat env | xargs)
+export $(cat $HOME/validators/env | xargs)
 
 docker-compose up -d
 

@@ -2,7 +2,7 @@
 
 echo "Initialize..."
 
-export $(cat env | xargs)
+export $(cat $HOME/validators/env | xargs)
 
 HOME_DIR=$HOME/.$SERVICE/config
 

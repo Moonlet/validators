@@ -11,7 +11,7 @@ git clone https://github.com/Moonlet/validators.git
 cd validators
 
 # Make executable
-chmod +x build.sh initialize.sh snapshot.sh run.sh
+chmod +x $HOME/validators/scripts*.sh
 
 # Set the chain details
 vi env
@@ -33,7 +33,7 @@ vi env
 
 ```sh
 # Export env vars to be accesible
-export $(cat env | xargs)
+export $(cat $HOME/validators/env | xargs)
 
 # See status
 docker exec ${SERVICE}_${NETWORK}_${SERVER_TYPE} /$BINARY status | jq

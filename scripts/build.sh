@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # Source the env file
+# TODO: check and replace with export $(cat $HOME/validators/env | xargs)
 set -o allexport
-source ./env
+source .$HOME/env
 set +o allexport
 
 # Build the Docker image with all environment variables as build arguments
