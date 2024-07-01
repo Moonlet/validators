@@ -11,7 +11,7 @@ git clone https://github.com/Moonlet/validators.git
 cd validators
 
 # Make executable
-chmod +x $HOME/validators/scripts*.sh
+chmod +x $HOME/validators/scripts/*.sh
 
 # Set the chain details
 vi env
