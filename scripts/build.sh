@@ -1,9 +1,8 @@
 #!/bin/bash
 
-# Source the env file
-set -o allexport
-source .$HOME/validators/env
-set +o allexport
+./set-env.sh
+
+echo "REPO: ${GIT_REPO}/${VERSION}/${BINARY}"
 
 # Build the Docker image with all environment variables as build arguments
 docker build \
