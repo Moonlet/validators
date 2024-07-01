@@ -2,8 +2,8 @@ version: "3.8"
 
 services:
   chain:
-    image: "${SERVICE}_${NETWORK}"
-    container_name: "${SERVICE}_${NETWORK}_${SERVER_TYPE}"
+    image: "${SERVICE}_${NETWORK}_${VERSION}"
+    container_name: "${SERVICE}_${NETWORK}_${SERVER_TYPE}_${VERSION}"
     env_file:
       - env
     volumes:
@@ -13,7 +13,7 @@ services:
     deploy:
       resources:
         reservations:
-          cpus: "3"
+          # cpus: "2"
           memory: "8G"
 
 networks:

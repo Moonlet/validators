@@ -29,7 +29,7 @@ vi env
 ./start.sh
 ```
 
-### Usefull commands
+### Useful commands
 
 ```sh
 # Export env vars to be accesible
@@ -38,8 +38,11 @@ export $(cat $HOME/validators/env | xargs)
 # See status
 docker exec ${SERVICE}_${NETWORK}_${SERVER_TYPE} /$BINARY status | jq
 
+# See version
+docker exec ${SERVICE}_${NETWORK}_${SERVER_TYPE} /$BINARY version
+
 # See logs
-docker logs ${SERVICE}_${NETWORK}_${SERVER_TYPE} -f
+docker logs -f --tail 0 ${SERVICE}_${NETWORK}_${SERVER_TYPE}
 ```
 
 TODO

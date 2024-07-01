@@ -2,14 +2,14 @@
 
 # Source the env file
 set -o allexport
-source .$HOME/env
+source .$HOME/validators/env
 set +o allexport
 
 # Build the Docker image with all environment variables as build arguments
 docker build \
-  --build-arg GIT_REPO=${GIT_REPO} \
+  --build-arg GIT_REPO=${GIT_REPO}/${VERSION}/${BINARY} \
   --build-arg BINARY=${BINARY} \
-  -t "${SERVICE}_${NETWORK}" .
+  -t "${SERVICE}_${NETWORK}_${VERSION}" .
 
 # Remove the ubuntu image
 docker rmi ubuntu:22.04
