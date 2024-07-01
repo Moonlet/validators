@@ -8,7 +8,8 @@ echo "REPO: ${GIT_REPO}/${VERSION}/${BINARY}"
 docker build \
   --build-arg GIT_REPO=${GIT_REPO}/${VERSION}/${BINARY} \
   --build-arg BINARY=${BINARY} \
-  -t "${SERVICE}_${NETWORK}_${VERSION}" .
+  -t "${SERVICE}_${NETWORK}_${VERSION}" . \
+  -f $HOME/validators/Dockerfile
 
 # Remove the ubuntu image
 docker rmi ubuntu:22.04
