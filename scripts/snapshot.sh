@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export $(cat $HOME/validators/env | xargs)
+./set-env.sh
 
 echo "Docker stop container"
 docker stop ${SERVICE}_${NETWORK}_${SERVER_TYPE}

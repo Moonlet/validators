@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Source the env file
-# TODO: check and replace with export $(cat $HOME/validators/env | xargs)
 set -o allexport
 source .$HOME/env
 set +o allexport

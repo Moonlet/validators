@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export $(cat $HOME/validators/env | xargs)
+./set-env.sh
 
 docker-compose up -d
 
