@@ -1,3 +1,3 @@
 #!/bin/bash
 
-./build.sh && ./initialize.sh && ./snapshot.sh && ./run.sh
+./build.sh && ./initialize.sh && ./snapshot.sh && ./start.sh

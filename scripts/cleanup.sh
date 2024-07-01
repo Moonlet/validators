@@ -8,5 +8,6 @@ git stash
 git stash drop
 git pull
 
-chmod +x build.sh initialize.sh snapshot.sh run.sh cleanup.sh
-./geek.sh
+chmod +x $HOME/validators/scripts/*.sh
+
+.$HOME/validators/scripts/geek.sh

@@ -25,8 +25,8 @@ vi env
 # Retrieve a snapshot to boost the sync
 ./snapshot.sh
 
-# Run the Docker image
-./run.sh
+# Start the Docker image
+./start.sh
 ```
 
 ### Usefull commands

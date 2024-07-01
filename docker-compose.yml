@@ -10,6 +10,11 @@ services:
       - $HOME/.${SERVICE}:/root/.${SERVICE}
     networks:
       - net
+    deploy:
+      resources:
+        reservations:
+          cpus: "3"
+          memory: "8G"
 
 networks:
   net:
