@@ -43,6 +43,9 @@ docker exec ${SERVICE}_${NETWORK}_${SERVER_TYPE}_${VERSION} /$BINARY version
 
 # See logs
 docker logs -f --tail 0 ${SERVICE}_${NETWORK}_${SERVER_TYPE}_${VERSION}
+
+# See ports
+docker exec ${SERVICE}_${NETWORK}_${SERVER_TYPE}_${VERSION} netstat -ntpl
 ```
 
 TODO
