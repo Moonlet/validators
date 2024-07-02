@@ -10,9 +10,9 @@ services:
       - env
     volumes:
       - $HOME/.${SERVICE}:/root/.${SERVICE}
-      - $HOME/validators/config/_app.toml:/root/.${SERVICE}/config/app.toml
-      - $HOME/validators/config/_client.toml:/root/.${SERVICE}/config/client.toml
-      - $HOME/validators/config/_config.toml:/root/.${SERVICE}/config/config.toml
+      # - $HOME/validators/config/_app.toml:/root/.${SERVICE}/config/app.toml
+      # - $HOME/validators/config/_client.toml:/root/.${SERVICE}/config/client.toml
+      # - $HOME/validators/config/_config.toml:/root/.${SERVICE}/config/config.toml
     networks:
       - net
     deploy:

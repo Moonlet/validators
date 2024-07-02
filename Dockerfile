@@ -31,6 +31,10 @@ ARG BINARY
 COPY --from=builder /${BINARY} /${BINARY}
 COPY entrypoint.sh /entrypoint.sh
 
+COPY config/_app.toml /app.toml
+COPY config/_client.toml /client.toml
+COPY config/_config.toml /config.toml
+
 RUN chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
