@@ -4,6 +4,16 @@ echo "Running envsubst"
 
 source ./set-env.sh
 
+export PRUNING="default"
+export PRUNING_KEEP_RECENT="0"
+export PRUNING_INTERVAL="0"
+
+if [ "$SERVER_TYPE" = 'rpc' ]; then
+    export PRUNING="custom"
+    export PRUNING_KEEP_RECENT="100"
+    export PRUNING_INTERVAL="10"
+fi
+
 envsubst < "$HOME/validators/config/_app.toml" > $HOME/validators/config/_app_subst.toml
 sudo mv $HOME/validators/config/_app_subst.toml $HOME/.${SERVICE}/config/app.toml
 
