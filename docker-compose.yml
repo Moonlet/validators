@@ -10,7 +10,9 @@ services:
       - env
     volumes:
       - $HOME/.${SERVICE}:/root/.${SERVICE}
-      - ./configs/_client.toml:/root/.${SERVICE}/config/config.toml
+      - ./configs/_app.toml:/root/.${SERVICE}/config/app.toml
+      - ./configs/_client.toml:/root/.${SERVICE}/config/client.toml
+      - ./configs/_config.toml:/root/.${SERVICE}/config/config.toml
     networks:
       - net
     deploy:

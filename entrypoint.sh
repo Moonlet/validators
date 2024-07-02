@@ -8,19 +8,13 @@ if [ -z "$1" ]; then
         # --p2p.laddr "tcp://0.0.0.0:$P2P_PORT"
 fi
 
-# Ensure P2P_PORT is set
-if [ -z "$P2P_PORT" ]; then
-  echo "P2P_PORT environment variable is not set. Exiting."
-  exit 1
-fi
+envsubst < /root/.${SERVICE}/config/app.toml > /root/.${SERVICE}/config/app.tmp
+mv /root/.${SERVICE}/config/app.tmp /root/.${SERVICE}/config/app.toml
 
-envsubst < /home/.${SERVICE}/config/app.toml > /home/.${SERVICE}/config/app.tmp
-mv /home/.${SERVICE}/config/app.tmp /home/.${SERVICE}/config/app.toml
+envsubst < /root/.${SERVICE}/config/client.toml > /root/.${SERVICE}/config/client.tmp
+mv /root/.${SERVICE}/config/client.tmp /root/.${SERVICE}/config/client.toml
 
-envsubst < /home/.${SERVICE}/config/client.toml > /home/.${SERVICE}/config/client.tmp
-mv /home/.${SERVICE}/config/client.tmp /home/.${SERVICE}/config/client.toml
-
-envsubst < /home/.${SERVICE}/config/config.toml > /home/.${SERVICE}/config/config.tmp
-mv /home/.${SERVICE}/config/config.tmp /home/.${SERVICE}/config/config.toml
+envsubst < /root/.${SERVICE}/config/config.toml > /root/.${SERVICE}/config/config.tmp
+mv /root/.${SERVICE}/config/config.tmp /root/.${SERVICE}/config/config.toml
 
 /$BINARY "$@"
