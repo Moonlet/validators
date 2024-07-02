@@ -3,7 +3,7 @@
 source ./set-env.sh
 
 echo "Docker stop container"
-docker stop $CONTAINER_NAME
+docker stop ${SERVICE}_${NETWORK}_${SERVER_TYPE}_${VERSION}
 
 echo "Delete data folder"
 sudo rm -rf "$HOME/.$SERVICE/data"
@@ -14,7 +14,7 @@ lz4 -c -d snapshot_latest.tar.lz4 | tar -x -C $HOME/.$SERVICE
 rm -rf snapshot_latest.tar.lz4
 
 # echo "Docker start container"
-# docker start $CONTAINER_NAME
+# docker start ${SERVICE}_${NETWORK}_${SERVER_TYPE}_${VERSION}
 
 # echo "Docker logs"
-# docker logs $CONTAINER_NAME
+# docker logs ${SERVICE}_${NETWORK}_${SERVER_TYPE}_${VERSION}

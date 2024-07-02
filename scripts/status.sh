@@ -2,4 +2,4 @@
 
 source ./set-env.sh
 
-docker exec $CONTAINER_NAME /$BINARY status | jq
+docker exec ${SERVICE}_${NETWORK}_${SERVER_TYPE}_${VERSION} /$BINARY status | jq

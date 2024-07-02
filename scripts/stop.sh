@@ -3,4 +3,4 @@
 source ./set-env.sh
 
 # add -t, --time # seconds
-docker stop $CONTAINER_NAME
+docker stop ${SERVICE}_${NETWORK}_${SERVER_TYPE}_${VERSION}

@@ -10,4 +10,3 @@ MIN_GAS_PRICE=20000000000adym
 GIT_REPO=https://github.com/dymensionxyz/dymension/releases/download
 GENESIS=https://snapshots.kjnodes.com/dymension/genesis.json
 ADDRBOOK=https://snapshots.kjnodes.com/dymension/addrbook.json
-CONTAINER_NAME=$SERVICE*$NETWORK_$SERVER*TYPE*$VERSION
