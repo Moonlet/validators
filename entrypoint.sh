@@ -2,9 +2,9 @@
 
 # Check if the command arguments ($@) are provided
 if [ -z "$1" ]; then
-    set -- "start" \
-        --moniker $MONIKER \
-        --minimum-gas-prices $MIN_GAS_PRICE
+    set -- "start"
+        # --minimum-gas-prices $MIN_GAS_PRICE
+        # --moniker $MONIKER \
         # --p2p.laddr "tcp://0.0.0.0:$P2P_PORT"
 fi
 
@@ -14,7 +14,12 @@ if [ -z "$P2P_PORT" ]; then
   exit 1
 fi
 
-# Replace the P2P port in the config.toml file
+envsubst < /home/.${SERVICE}/config/app.toml > /home/.${SERVICE}/config/app.tmp
+mv /home/.${SERVICE}/config/app.tmp /home/.${SERVICE}/config/app.toml
+
+envsubst < /home/.${SERVICE}/config/client.toml > /home/.${SERVICE}/config/client.tmp
+mv /home/.${SERVICE}/config/client.tmp /home/.${SERVICE}/config/client.toml
+
 envsubst < /home/.${SERVICE}/config/config.toml > /home/.${SERVICE}/config/config.tmp
 mv /home/.${SERVICE}/config/config.tmp /home/.${SERVICE}/config/config.toml
 
