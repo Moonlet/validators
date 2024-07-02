@@ -5,4 +5,4 @@ source ./set-env.sh
 echo "Docker stop container"
 
 # add -t, --time # seconds
-docker-compose stop ${SERVICE}_${NETWORK}_${SERVER_TYPE}_${VERSION}
+docker down ${SERVICE}_${NETWORK}_${SERVER_TYPE}_${VERSION}

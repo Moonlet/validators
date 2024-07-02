@@ -2,8 +2,8 @@
 
 # Check if the command arguments ($@) are provided
 if [ -z "$1" ]; then
-    set -- "start"
-        # --minimum-gas-prices $MIN_GAS_PRICE
+    set -- "start" \
+        --minimum-gas-prices $MIN_GAS_PRICE
         # --moniker $MONIKER \
         # --p2p.laddr "tcp://0.0.0.0:$P2P_PORT"
 fi
