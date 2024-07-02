@@ -8,7 +8,7 @@ export PRUNING="default"
 export PRUNING_KEEP_RECENT="0"
 export PRUNING_INTERVAL="0"
 
-if [ "$SERVER_TYPE" = 'rpc' ]; then
+if [ "$SERVER_TYPE" = 'rpc' ] || [ "$SERVER_TYPE" = 'snapshot' ]; then
     export PRUNING="custom"
     export PRUNING_KEEP_RECENT="100"
     export PRUNING_INTERVAL="10"
