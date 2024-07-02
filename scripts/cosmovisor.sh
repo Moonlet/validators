@@ -1,7 +1,6 @@
 #!/bin/bash
 
 VERSION=$1 # v0.37.0
-NETWORK=mainnet
 SERVICE=elys
 BINARY=elysd
 GIT_URL=https://github.com/elys-network/elys/releases/download/$VERSION/elysd-$VERSION-linux-amd64
