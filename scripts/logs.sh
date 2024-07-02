@@ -2,4 +2,4 @@
 
 source ./set-env.sh
 
-docker logs -f --tail 0 ${SERVICE}_${NETWORK}_${SERVER_TYPE}
+docker logs -f --tail 0 $CONTAINER_NAME

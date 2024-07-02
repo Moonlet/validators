@@ -36,13 +36,13 @@ vi env
 export $(cat $HOME/validators/env | xargs)
 
 # See status
-docker exec ${SERVICE}_${NETWORK}_${SERVER_TYPE} /$BINARY status | jq
+docker exec $CONTAINER_NAME /$BINARY status | jq
 
 # See version
-docker exec ${SERVICE}_${NETWORK}_${SERVER_TYPE} /$BINARY version
+docker exec $CONTAINER_NAME /$BINARY version
 
 # See logs
-docker logs -f --tail 0 ${SERVICE}_${NETWORK}_${SERVER_TYPE}
+docker logs -f --tail 0 $CONTAINER_NAME
 ```
 
 TODO

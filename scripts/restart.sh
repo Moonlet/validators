@@ -2,6 +2,6 @@
 
 source ./set-env.sh
 
-docker restart ${SERVICE}_${NETWORK}_${SERVER_TYPE}
+docker restart $CONTAINER_NAME
 
 ./logs.sh

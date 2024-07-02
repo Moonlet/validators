@@ -3,7 +3,7 @@ version: "3.8"
 services:
   chain:
     image: "${SERVICE}_${NETWORK}_${VERSION}"
-    container_name: "${SERVICE}_${NETWORK}_${SERVER_TYPE}_${VERSION}"
+    container_name: "$CONTAINER_NAME"
     env_file:
       - env
     volumes:
