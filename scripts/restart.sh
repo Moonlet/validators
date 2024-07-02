@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./set-env.sh
+source ./set-env.sh
 
 docker restart ${SERVICE}_${NETWORK}_${SERVER_TYPE}
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./set-env.sh
+source ./set-env.sh
 
 echo "REPO: ${GIT_REPO}/${VERSION}/${BINARY}"
 

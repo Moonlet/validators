@@ -2,7 +2,7 @@
 
 echo "Initialize..."
 
-./set-env.sh
+source ./set-env.sh
 
 HOME_DIR=$HOME/.$SERVICE/config
 
