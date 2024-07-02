@@ -2,10 +2,7 @@
 
 # Check if the command arguments ($@) are provided
 if [ -z "$1" ]; then
-    set -- "start" \
-        --minimum-gas-prices $MIN_GAS_PRICE
-        # --moniker $MONIKER \
-        # --p2p.laddr "tcp://0.0.0.0:$P2P_PORT"
+    set -- "start"
 fi
 
 envsubst < /root/app.toml > /root/.${SERVICE}/config/app.toml
