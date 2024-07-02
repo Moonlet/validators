@@ -2,7 +2,7 @@
 
 source ./set-env.sh
 
-echo "REPO: ${GIT_REPO}/${VERSION}/${BINARY}"
+echo "Docker build image"
 
 # Build the Docker image with all environment variables as build arguments
 docker build \
@@ -10,6 +10,8 @@ docker build \
   --build-arg BINARY=${BINARY} \
   -t "${SERVICE}_${NETWORK}_${VERSION}" \
   -f $HOME/validators/Dockerfile $HOME/validators
+
+echo "Docker remove unused images"
 
 # Remove the ubuntu image
 docker rmi ubuntu:22.04
