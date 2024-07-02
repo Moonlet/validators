@@ -4,6 +4,8 @@ services:
   chain:
     image: "${SERVICE}_${NETWORK}_${VERSION}"
     container_name: "${SERVICE}_${NETWORK}_${SERVER_TYPE}_${VERSION}"
+    ports:
+      - $P2P_PORT:$P2P_PORT
     env_file:
       - env
     volumes:

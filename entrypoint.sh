@@ -3,9 +3,9 @@
 # Check if the command arguments ($@) are provided
 if [ -z "$1" ]; then
     set -- "start" \
-        --address $ADDRESS \
         --moniker $MONIKER \
-        --minimum-gas-prices $MIN_GAS_PRICE
+        --minimum-gas-prices $MIN_GAS_PRICE \
+        --p2p.laddr "tcp://0.0.0.0:$P2P_PORT"
 fi
 
 /$BINARY "$@"
