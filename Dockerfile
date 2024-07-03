@@ -9,7 +9,7 @@ ARG GIT_REPO
 ARG BINARY
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends wget ca-certificates net-tools gettext && \
+    apt-get install -y --no-install-recommends wget ca-certificates net-tools && \
     rm -rf /var/lib/apt/lists/*
 
 # Builder stage
