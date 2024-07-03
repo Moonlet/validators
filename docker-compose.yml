@@ -7,6 +7,7 @@ services:
     ports:
       - $P2P_PORT:26656
       - $PROMETHEUS_PORT:26660
+      ## CONDITIONAL_PORTS ##
     env_file:
       - env
     volumes:
