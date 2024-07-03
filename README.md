@@ -47,8 +47,3 @@ docker logs -f --tail 0 ${SERVICE}_${NETWORK}_${SERVER_TYPE}_${VERSION}
 # See ports
 docker exec ${SERVICE}_${NETWORK}_${SERVER_TYPE}_${VERSION} netstat -ntpl
 ```
-
-TODO
-
-- Add Pruning
-- Add custom ports
