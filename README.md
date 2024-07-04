@@ -14,19 +14,19 @@ cd validators
 chmod +x $HOME/validators/scripts/*.sh
 
 # Set the chain details
-./$HOME/scripts/init-env.sh side testnet
+$HOME/validators/scripts/init-env.sh side testnet
 
 # Build the Docker image
-./$HOME/scripts/build.sh
+$HOME/validators/scripts/build.sh
 
 # Run initialize
-./$HOME/scripts/initialize.sh
+$HOME/validators/scripts/initialize.sh
 
 # Retrieve a snapshot to boost the sync
-./$HOME/scripts/snapshot.sh
+$HOME/validators/scripts/snapshot.sh
 
 # Start the Docker image
-./$HOME/scripts/start.sh
+$HOME/validators/scripts/start.sh
 ```
 
 ### Useful commands
