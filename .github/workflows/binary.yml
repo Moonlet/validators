@@ -19,6 +19,10 @@ on:
         description: "Binary name"
         required: true
         default: "sided"
+      go:
+        description: "go version"
+        required: true
+        default: "1.21.12"
 
 jobs:
   build:
@@ -35,7 +39,7 @@ jobs:
           sudo apt -qy upgrade
 
           sudo rm -rf /usr/local/go
-          curl -Ls https://go.dev/dl/go1.21.12.linux-amd64.tar.gz | sudo tar -xzf - -C /usr/local
+          curl -Ls https://go.dev/dl/go${{ github.event.inputs.go }}.linux-amd64.tar.gz | sudo tar -xzf - -C /usr/local
           echo 'export PATH=$PATH:/usr/local/go/bin' | sudo tee /etc/profile.d/golang.sh
           echo 'export PATH=$PATH:$HOME/go/bin' | tee -a $HOME/.profile
           source /etc/profile.d/golang.sh
@@ -55,6 +59,10 @@ jobs:
           make build
           cd build
           chmod +x ${{ github.event.inputs.binary_name }}
+          ls -l
+
+      - name: List build directory contents
+        run: ls -l $HOME/side/build
 
       - name: Create GitHub Release
         id: create_release
@@ -73,6 +81,6 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: $HOME/side/build/${{ github.event.inputs.binary_name }}
+          asset_path: $HOME/${{ github.event.inputs.service }}/build/${{ github.event.inputs.binary_name }}
           asset_name: ${{ github.event.inputs.binary_name }}
           asset_content_type: application/octet-stream
