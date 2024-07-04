@@ -14,11 +14,11 @@ services:
       - $HOME/.${SERVICE}:/root/.${SERVICE}
     networks:
       - net
-    deploy:
-      resources:
-        reservations:
-          # cpus: "2"
-          memory: "8G"
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       # cpus: "2"
+    #       memory: "8G"
 
 networks:
   net:
