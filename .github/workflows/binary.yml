@@ -53,10 +53,6 @@ jobs:
           source /etc/profile.d/golang.sh
           source ${{ github.workspace }}/.profile
 
-      - name: Install libwasmvm
-        run: |
-          sudo wget -P /usr/lib https://github.com/CosmWasm/wasmvm/releases/download/v1.3.1/libwasmvm.x86_64.so
-
       - name: Clone project repository
         run: |
           cd ${{ github.workspace }}
