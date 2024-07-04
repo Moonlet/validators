@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./set-env.sh
+source $HOME/validators/scripts/set-env.sh
 
 echo "Docker container status"
 

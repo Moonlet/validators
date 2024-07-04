@@ -2,7 +2,7 @@
 
 echo "Initialize..."
 
-source ./set-env.sh
+source $HOME/validators/scripts/set-env.sh
 
 HOME_DIR=$HOME/.$SERVICE/config
 

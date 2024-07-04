@@ -2,7 +2,7 @@
 
 echo "Running envsubst"
 
-source ./set-env.sh
+source $HOME/validators/scripts/set-env.sh
 
 export PRUNING="default"
 export PRUNING_KEEP_RECENT="0"

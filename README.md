@@ -15,6 +15,7 @@ chmod +x $HOME/validators/scripts/*.sh
 
 # Set the chain details
 $HOME/validators/scripts/init-env.sh side testnet
+cat env
 
 # Build the Docker image
 $HOME/validators/scripts/build.sh
