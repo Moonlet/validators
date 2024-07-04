@@ -68,25 +68,15 @@ jobs:
           cd build
           chmod +x ${{ github.event.inputs.binary_name }}
 
-      - name: Create GitHub Release
-        id: create_release
-        uses: actions/create-release@v1
+      - name: Create and Upload GitHub Release
+        uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          files: ${{ github.workspace }}/${{ github.event.inputs.service }}/build/${{ github.event.inputs.binary_name }}
           tag_name: ${{ github.event.inputs.service }}-${{ github.event.inputs.network }}-${{ github.event.inputs.tag }}
-          release_name: ${{ github.event.inputs.service }}-${{ github.event.inputs.network }}-${{ github.event.inputs.tag }}
+          name: ${{ github.event.inputs.service }}-${{ github.event.inputs.network }}-${{ github.event.inputs.tag }}
           body: |
             Release of ${{ github.event.inputs.service }} ${{ github.event.inputs.network }} ${{ github.event.inputs.tag }}
           draft: false
           prerelease: false
-
-      - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ github.workspace }}/${{ github.event.inputs.service }}/build/${{ github.event.inputs.binary_name }}
-          asset_name: ${{ github.event.inputs.binary_name }}
-          asset_content_type: application/octet-stream
