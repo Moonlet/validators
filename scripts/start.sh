@@ -2,7 +2,7 @@
 
 source $HOME/validators/scripts/set-env.sh
 
-./env-subst.sh
+source $HOME/validators/scripts/env-subst.sh
 
 echo "Docker start container"
 
