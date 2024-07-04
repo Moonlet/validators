@@ -67,10 +67,6 @@ jobs:
           make build
           cd build
           chmod +x ${{ github.event.inputs.binary_name }}
-          ls -l
-
-      - name: List build directory contents
-        run: ls -l ${{ github.workspace }}/${{ github.event.inputs.service }}/build
 
       - name: Create GitHub Release
         id: create_release
@@ -81,10 +77,9 @@ jobs:
           tag_name: ${{ github.event.inputs.service }}-${{ github.event.inputs.network }}-${{ github.event.inputs.tag }}
           release_name: ${{ github.event.inputs.service }}-${{ github.event.inputs.network }}-${{ github.event.inputs.tag }}
           body: |
-            Release of ${{ github.event.inputs.service }} ${{ github.event.inputs.network }} ${{ github.event.inputs.tag }}.
+            Release of ${{ github.event.inputs.service }} ${{ github.event.inputs.network }} ${{ github.event.inputs.tag }}
           draft: false
           prerelease: false
-        continue-on-error: true
 
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
