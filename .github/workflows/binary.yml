@@ -7,6 +7,14 @@ on:
         description: "Service"
         required: true
         default: "side"
+      network:
+        description: "Network"
+        type: choice
+        options:
+          - mainnet
+          - testnet
+        required: true
+        default: "testnet"
       repo_url:
         description: "Git Repo"
         required: true
@@ -70,10 +78,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.event.inputs.tag }}
-          release_name: ${{ github.event.inputs.service }} ${{ github.event.inputs.tag }}
+          tag_name: ${{ github.event.inputs.service }}-${{ github.event.inputs.network }}-${{ github.event.inputs.tag }}
+          release_name: ${{ github.event.inputs.service }}-${{ github.event.inputs.network }}-${{ github.event.inputs.tag }}
           body: |
-            Release of ${{ github.event.inputs.service }} version ${{ github.event.inputs.tag }}.
+            Release of ${{ github.event.inputs.service }} ${{ github.event.inputs.network }} ${{ github.event.inputs.tag }}.
           draft: false
           prerelease: false
         continue-on-error: true
