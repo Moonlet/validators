@@ -17,7 +17,7 @@ services:
     # deploy:
     #   resources:
     #     reservations:
-    #       # cpus: "2"
+    #       # cpus: "2" # seems to be working only in swarm
     #       memory: "8G"
 
 networks:
