@@ -1,0 +1,78 @@
+name: Build Binary
+
+on:
+  workflow_dispatch:
+    inputs:
+      service:
+        description: "Service"
+        required: true
+        default: "side"
+      repo_url:
+        description: "Git Repo"
+        required: true
+        default: "https://github.com/sideprotocol/side.git"
+      tag:
+        description: "Version"
+        required: true
+        default: "v0.8.1"
+      binary_name:
+        description: "Binary name"
+        required: true
+        default: "sided"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Go environment
+        run: |
+          sudo apt -q update
+          sudo apt -qy install curl git jq lz4 build-essential
+          sudo apt -qy upgrade
+
+          sudo rm -rf /usr/local/go
+          curl -Ls https://go.dev/dl/go1.21.12.linux-amd64.tar.gz | sudo tar -xzf - -C /usr/local
+          echo 'export PATH=$PATH:/usr/local/go/bin' | sudo tee /etc/profile.d/golang.sh
+          echo 'export PATH=$PATH:$HOME/go/bin' | tee -a $HOME/.profile
+          source /etc/profile.d/golang.sh
+          source $HOME/.profile
+
+      - name: Clone project repository
+        run: |
+          cd $HOME
+          rm -rf ${{ github.event.inputs.service }}
+          git clone ${{ github.event.inputs.repo_url }} ${{ github.event.inputs.service }}
+          cd ${{ github.event.inputs.service }}
+          git checkout ${{ github.event.inputs.tag }}
+
+      - name: Build binaries
+        run: |
+          cd $HOME/${{ github.event.inputs.service }}
+          make build
+          cd build
+          chmod +x ${{ github.event.inputs.binary_name }}
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.event.inputs.tag }}
+          release_name: ${{ github.event.inputs.service }} ${{ github.event.inputs.tag }}
+          #   body: |
+          #     Release of version ${{ github.event.inputs.tag }}.
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: $HOME/side/build/${{ github.event.inputs.binary_name }}
+          asset_name: ${{ github.event.inputs.binary_name }}
+          asset_content_type: application/octet-stream
