@@ -8,4 +8,4 @@ echo "Docker start container"
 
 docker-compose up -d
 
-./logs.sh
+source $HOME/validators/scripts/logs.sh
