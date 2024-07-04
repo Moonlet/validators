@@ -6,7 +6,7 @@ echo "Docker build image"
 
 # Build the Docker image with all environment variables as build arguments
 docker build \
-  --build-arg GIT_REPO=${GIT_REPO}/${VERSION}/${BINARY} \
+  --build-arg GIT_REPO=${GIT_REPO} \
   --build-arg BINARY=${BINARY} \
   -t "${SERVICE}_${NETWORK}_${VERSION}" \
   -f $HOME/validators/Dockerfile $HOME/validators
