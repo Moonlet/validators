@@ -72,10 +72,11 @@ jobs:
         with:
           tag_name: ${{ github.event.inputs.tag }}
           release_name: ${{ github.event.inputs.service }} ${{ github.event.inputs.tag }}
-          #   body: |
-          #     Release of version ${{ github.event.inputs.tag }}.
+          body: |
+            Release of ${{ github.event.inputs.service }} version ${{ github.event.inputs.tag }}.
           draft: false
           prerelease: false
+        continue-on-error: true
 
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
