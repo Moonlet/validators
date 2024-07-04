@@ -3,10 +3,6 @@ name: Build Binary
 on:
   workflow_dispatch:
     inputs:
-      service:
-        description: "Service"
-        required: true
-        default: "side"
       network:
         description: "Network"
         type: choice
@@ -15,6 +11,14 @@ on:
           - testnet
         required: true
         default: "testnet"
+      service:
+        description: "Blockchain"
+        required: true
+        default: "side"
+      binary_name:
+        description: "Binary"
+        required: true
+        default: "sided"
       repo_url:
         description: "Git Repo"
         required: true
@@ -23,10 +27,6 @@ on:
         description: "Version"
         required: true
         default: "v0.8.1"
-      binary_name:
-        description: "Binary name"
-        required: true
-        default: "sided"
       go:
         description: "go version"
         required: true
@@ -38,7 +38,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Go environment
         run: |
