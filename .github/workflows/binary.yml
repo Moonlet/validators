@@ -41,13 +41,13 @@ jobs:
           sudo rm -rf /usr/local/go
           curl -Ls https://go.dev/dl/go${{ github.event.inputs.go }}.linux-amd64.tar.gz | sudo tar -xzf - -C /usr/local
           echo 'export PATH=$PATH:/usr/local/go/bin' | sudo tee /etc/profile.d/golang.sh
-          echo 'export PATH=$PATH:$HOME/go/bin' | tee -a $HOME/.profile
+          echo 'export PATH=$PATH:${{ github.workspace }}/go/bin' | tee -a ${{ github.workspace }}/.profile
           source /etc/profile.d/golang.sh
-          source $HOME/.profile
+          source ${{ github.workspace }}/.profile
 
       - name: Clone project repository
         run: |
-          cd $HOME
+          cd ${{ github.workspace }}
           rm -rf ${{ github.event.inputs.service }}
           git clone ${{ github.event.inputs.repo_url }} ${{ github.event.inputs.service }}
           cd ${{ github.event.inputs.service }}
@@ -55,14 +55,14 @@ jobs:
 
       - name: Build binaries
         run: |
-          cd $HOME/${{ github.event.inputs.service }}
+          cd ${{ github.workspace }}/${{ github.event.inputs.service }}
           make build
           cd build
           chmod +x ${{ github.event.inputs.binary_name }}
           ls -l
 
       - name: List build directory contents
-        run: ls -l $HOME/side/build
+        run: ls -l ${{ github.workspace }}/${{ github.event.inputs.service }}/build
 
       - name: Create GitHub Release
         id: create_release
@@ -81,6 +81,6 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: $HOME/${{ github.event.inputs.service }}/build/${{ github.event.inputs.binary_name }}
+          asset_path: ${{ github.workspace }}/${{ github.event.inputs.service }}/build/${{ github.event.inputs.binary_name }}
           asset_name: ${{ github.event.inputs.binary_name }}
           asset_content_type: application/octet-stream
